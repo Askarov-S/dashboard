@@ -160,7 +160,7 @@ const Settings = () => {
                 <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                   <div>
                     <p className="font-medium text-gray-800 dark:text-white">
-                      Email Bildirshnomalari
+                      Email Bildirishnomalar
                     </p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Emailga bildirishnoma olish
