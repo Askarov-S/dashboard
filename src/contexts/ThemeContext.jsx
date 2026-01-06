@@ -14,13 +14,22 @@ const useTheme = () => {
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
     // Get theme from localStorage or default to 'light'
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme || 'light';
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      return savedTheme || 'light';
+    } catch (error) {
+      console.warn('localStorage not available:', error);
+      return 'light';
+    }
   });
 
   useEffect(() => {
     // Update localStorage and DOM when theme changes
-    localStorage.setItem('theme', theme);
+    try {
+      localStorage.setItem('theme', theme);
+    } catch (error) {
+      console.warn('Failed to save theme to localStorage:', error);
+    }
     
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
